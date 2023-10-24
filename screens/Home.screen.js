@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import {Image, ScrollView, StyleSheet, Text, View} from "react-native";
 import { IconButton, TextInput } from "react-native-paper";
 
 function HomeScreen() {
@@ -12,6 +12,8 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <Image source={require("../assets/logo.png")} style={styles.logo}/>
+        <Image source={require("../assets/profil.png")} style={styles.profil}/>
         <Text style={styles.firstText}>Une envie ?</Text>
         <View style={styles.searchContainer}>
           <View style={styles.inputContainer}>
@@ -278,6 +280,21 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     backgroundColor: "white"
+  },
+
+  logo : {
+    position: "absolute",
+    width: 50,
+    height: 50,
+    top: 20,
+    left: 20,
+  },
+  profil : {
+    position: "absolute",
+    width: 50,
+    height: 50,
+    top: 20,
+    right: 20,
   }
 });
 
