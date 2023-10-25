@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import {Image, ScrollView, StyleSheet, Text, View} from "react-native";
 import { IconButton, TextInput } from "react-native-paper";
+import {useNavigation} from "@react-navigation/native";
 
 function HomeScreen() {
   const [searchQuery, setSearchQuery] = useState("");
 
+  const navigation = useNavigation();
+
   const handleSearch = () => {
     console.log("Recherche effectuée : ", searchQuery);
+    navigation.navigate("Map");
   };
 
   return (
