@@ -1,12 +1,16 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from "react-native";
+import {Pressable, View, StyleSheet, Image} from "react-native";
 import MapComponent from "../components/map.component";
+import {useNavigation} from "@react-navigation/native";
 
 function MapScreen() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image source={require("../assets/logo.png")} style={styles.logo}/>
+        <Pressable onPress={() => navigation.navigate('Home')} style={styles.pressable}>
+          <Image source={require("../assets/logo.png")} style={styles.logo} />
+        </Pressable>
         <Image source={require("../assets/profil.png")} style={styles.profil}/>
       </View>
       <MapComponent />
@@ -40,7 +44,11 @@ const styles = StyleSheet.create({
     height: 50,
     top: 20,
     right: 20,
-  }
+  },
+
+  pressable: {
+    position: "absolute",
+  },
 });
 
 export default MapScreen;
