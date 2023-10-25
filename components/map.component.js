@@ -4,7 +4,7 @@ import * as Location from 'expo-location';
 import axios from 'axios';
 import polyline from '@mapbox/polyline';
 import { apiKey } from '../config';
-import {ActivityIndicator, StyleSheet, Touchable, TouchableOpacity, View} from "react-native";
+import {ActivityIndicator, StyleSheet, Text, Touchable, TouchableOpacity, View} from "react-native";
 
 function MapComponent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -73,11 +73,10 @@ function MapComponent() {
   return (
     isLoading ? (
       <View>
-        {isLoading ? (
-          <View style={styles.loadingContainer} onTouchStart={() => {setIsLoading(false)}}>
-            <ActivityIndicator size="large" color="#ED7449" style={styles.actid} />
-          </View>
-        ) : null}
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#ED7449" style={styles.actid} />
+          <Text style={styles.text}>Création de votre parcours ...</Text>
+        </View>
       </View>
       ) : (
       <MapView
@@ -134,11 +133,14 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    width: "100%",
+    height: "100%"
   },
   actid: {
-    width: "100%",
-    height: "100%",
+  },
+
+  text: {
+    color: "black",
   }
 
 });
